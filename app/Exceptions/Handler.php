@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Exceptions;
-
+// use League\OAuth2\Server\Exception\OAuthServerException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -30,6 +31,12 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        return response()->json(['message' => $exception->getMessage()], 401);
+    }
+
     public function register()
     {
         //

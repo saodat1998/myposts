@@ -13,6 +13,16 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * active users
+     */
+    const STATUS_ACTIVE = 'ACTIVE';
+
+    /**
+     * draft users
+     */
+    const STATUS_DRAFT = 'DRAFT';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -21,6 +31,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'status',
     ];
 
     /**

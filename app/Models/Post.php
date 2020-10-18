@@ -9,11 +9,23 @@ use App\Models\Category;
 class Post extends Model
 {
     use HasFactory;
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'body',
+        'category_id',
+        'status',
+    ];
 
-    protected $table = 'posts';
-    public $primaryKey = 'id';
     public $timestamp = true;
 
+    /**
+     * Category Model
+     */
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');

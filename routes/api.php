@@ -25,8 +25,8 @@ Route::middleware('auth:api')->group(function () {
 
     //posts
     Route::get('posts', [PostsController::class, 'index'])->name('posts');
-    Route::get('posts/{title}', [PostsController::class, 'show'])->name('show');
-    Route::post('posts/create', [PostsController::class, 'store'])->name('store');
+    Route::get('posts/{id}', [PostsController::class, 'show'])->name('show');
+    Route::post('posts', [PostsController::class, 'store'])->name('store');
     Route::put('posts/{id}', [PostsController::class, 'update'])->name('update');
     Route::delete('posts/{id}', [PostsController::class, 'destroy'])->name('destroy');
 

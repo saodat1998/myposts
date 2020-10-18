@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Resources\Post as PostResource;
+use App\Http\Resources\PostCollection;
+use Exception;
 
 class PostsController extends Controller
 {
@@ -14,19 +17,17 @@ class PostsController extends Controller
      */
 
 
-    public function index()
+    public function index(Request $request)
     {
-        return Post::all();
-    }
+        $posts = Post::select('*');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        if ($request->input('search'))
+        {
+            $posts->where('title', 'LIKE', "%{$request->input('search')}%");
+        }
+        $postsDTO = new PostCollection($posts->get());
+
+        return response()->json($postsDTO);
     }
 
     /**
@@ -37,18 +38,26 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-        ]);
+        try{
+            $this->validate($request, [
+                'title' => 'required',
+                'body' => 'required',
+                'category_id' => 'required',
+            ]);
 
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->user_id = auth()->user()->id;
-        $post->category_id = $request->input('category_id');
-        $post->save();
-        return 'success';
+            $post = new Post;
+            $post->fill($request->all());
+            $post->status = Post::STATUS_ACTIVE;
+            $post->user_id = auth()->user()->id;
+
+            $post->save();
+        } catch(Exception $e)
+        {
+            return response()->json(['message' => $e->getMessage(), 500]);
+        }
+
+        $postDTO = new PostResource($post);
+        return response()->json(['post' => $postDTO]);
     }
 
     /**
@@ -57,19 +66,12 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($id)
     {
-        return Post::where('title', $title)->first();
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        // $post = Post::find($id);
+        $post = Post::find($id);
+        $postDTO = new PostResource($post);
+
+        return response()->json(['post' => $postDTO]);
     }
 
     /**
@@ -81,15 +83,28 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-        ]);
-        $post = Post::find($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
-        return Post::all();
+        try
+        {
+            $this->validate($request, [
+                'title' => 'required',
+                'body' => 'required',
+                'category_id' => 'required',
+            ]);
+
+            $post = Post::find($id);
+            $post->title = $request->input('title');
+            $post->body = $request->input('body');
+            $post->category_id = $request->input('category_id');
+            $post->save();
+
+        } catch(Exception $e)
+        {
+            return response()->json(['message' => $e->getMessage(), 500]);
+        }
+
+        $postDTO = new PostResource($post);
+
+        return response()->json(['post' => $postDTO]);
     }
 
     /**
@@ -100,8 +115,14 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $post->delete();
-        return Post::all();
+        try {
+            $post = Post::find($id);
+            $post->delete();
+        } catch(Exception $e)
+        {
+            return response()->json(['message' => $e->getMessage(), 500]);
+        }
+
+        return response()->json(['message' => true]);
     }
 }

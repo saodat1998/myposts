@@ -9,6 +9,16 @@ use App\Models\Category;
 class Post extends Model
 {
     use HasFactory;
+    /**
+     * active posts
+     */
+    const STATUS_ACTIVE = 'ACTIVE';
+
+    /**
+     * draft posts
+     */
+    const STATUS_DRAFT = 'DRAFT';
+
      /**
      * The attributes that are mass assignable.
      *

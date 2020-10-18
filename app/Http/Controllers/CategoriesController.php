@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Resources\Category as CategoryResource;
+use Exception;
 
 class CategoriesController extends Controller
 {
@@ -25,16 +26,23 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:categories',
-            'parent_id' => 'sometimes|nullable|numeric'
-        ]);
+        try{
+            $this->validate($request, [
+                'name' => 'required|unique:categories',
+                'parent_id' => 'sometimes|nullable|numeric'
+            ]);
 
-        $category = new Category;
-        $category->name = $request->input('name');
-        $category->parent_id = $request->input('parent_id');
-        $category->save();
-        return response()->json(['category' => $category]);
+            $category = new Category;
+            $category->name = $request->input('name');
+            $category->parent_id = $request->input('parent_id');
+            $category->save();
+        } catch(Exception $e)
+        {
+            return response()->json(['message' => $e->getMessage(), 500]);
+        }
+
+        $categoryDTO = new CategoryResource($category);
+        return response()->json(['category' => $categoryDTO]);
     }
 
     /**
@@ -61,19 +69,25 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'parent_id' => 'sometimes'
-        ]);
+        try {
+            $this->validate($request, [
+                'name' => 'required',
+                'parent_id' => 'sometimes'
+            ]);
 
-        $category = Category::find($id);
-        $category->name = $request->input('name');
-        $category->parent_id = $request->input('parent_id');
-        $category->save();
+            $category = Category::find($id);
+            $category->name = $request->input('name');
+            $category->parent_id = $request->input('parent_id');
 
-        return response()->json(['category' => $category]);
+            $category->save();
+        } catch(Exception $e)
+        {
+            return response()->json(['message' => $e->getMessage(), 500]);
+        }
+
+        $categoryDTO = new CategoryResource($category);
+        return response()->json(['category' => $categoryDTO]);
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -82,13 +96,14 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        if($category->delete()){
-            $status = true;
-        }else{
-            $status = false;
+        try {
+            $category = Category::find($id);
+            $category->delete();
+        } catch(Exception $e)
+        {
+            return response()->json(['message' => $e->getMessage(), 500]);
         }
 
-        return response()->json(['message' => $status]);
+        return response()->json(['message' => true]);
     }
 }

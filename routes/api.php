@@ -24,29 +24,21 @@ Route::middleware('auth:api')->group(function () {
     Route::get('user', [PassportAuthController::class, 'userInfo']);
 
     //posts
-    Route::get('posts', [PostsController::class, 'index'])->name('posts');
-    Route::get('posts/{id}', [PostsController::class, 'show'])->name('show');
-    Route::post('posts', [PostsController::class, 'store'])->name('store');
-    Route::put('posts/{id}', [PostsController::class, 'update'])->name('update');
-    Route::delete('posts/{id}', [PostsController::class, 'destroy'])->name('destroy');
+    Route::prefix('posts')->group(function () {
+        Route::get('/', [PostsController::class, 'index'])->name('posts');
+        Route::get('/{id}', [PostsController::class, 'show'])->name('show');
+        Route::post('/', [PostsController::class, 'store'])->name('store');
+        Route::put('/{id}', [PostsController::class, 'update'])->name('update');
+        Route::delete('/{id}', [PostsController::class, 'destroy'])->name('destroy');
+    });
 
     //categories
-    Route::get('categories', [CategoriesController::class, 'index'])->name('categories');
-    Route::get('categories/{id}', [CategoriesController::class, 'show'])->name('show');
-    Route::post('categories', [CategoriesController::class, 'store'])->name('store');
-    Route::put('categories/{id}', [CategoriesController::class, 'update'])->name('update');
-    Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
+    Route::prefix('categories')->group(function () {
+        Route::get('/', [CategoriesController::class, 'index'])->name('categories');
+        Route::get('/{id}', [CategoriesController::class, 'show'])->name('show');
+        Route::post('/', [CategoriesController::class, 'store'])->name('store');
+        Route::put('/{id}', [CategoriesController::class, 'update'])->name('update');
+        Route::delete('/{id}', [CategoriesController::class, 'destroy'])->name('destroy');
+    });
 
 });
-
-
-
-
-
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-// Route::post('register', [AuthController::class, 'register']);
-// Route::post('login', [AuthController::class, 'login']);

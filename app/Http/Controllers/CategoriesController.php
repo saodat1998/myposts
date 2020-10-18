@@ -3,27 +3,18 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Resources\Category as CategoryResource;
 
 class CategoriesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::whereNull('parent_id')->with('children')->get();
-        $response = [];
-        foreach ($categories as $category) {
-            $response[] = $this->show($category->name);
+        $categories = Category::whereNull('parent_id');
+        if($request->input('search')){
+           $categories->where('name', 'LIKE', "%{$request->input('search')}%");
         }
-        return $response;
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json(['categories' => $categories->with('children')->get()]);
     }
 
     /**
@@ -38,17 +29,12 @@ class CategoriesController extends Controller
             'name' => 'required|unique:categories',
             'parent_id' => 'sometimes|nullable|numeric'
         ]);
-        $parentCategory = Category::find($request->input('parent_id'));
-        if(!$parentCategory->parent_id)
-        {
-            $category = new Category;
-            $category->name = $request->input('name');
-            $category->parent_id = $request->input('parent_id');
-            $category->save();
-            return 'success';
-        }else{
-            return "error";
-        }
+
+        $category = new Category;
+        $category->name = $request->input('name');
+        $category->parent_id = $request->input('parent_id');
+        $category->save();
+        return response()->json(['category' => $category]);
     }
 
     /**
@@ -57,30 +43,14 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($name)
+    public function show($id)
     {
-        $category = Category::where('name', $name)->first();
+        $category = Category::with('children')->find($id);
+        $categoryDTO = new CategoryResource($category);
 
-        $response = $category;
-        $children = [];
-        foreach ($category->children as $item) {
-            $children['name'] = $item->name;
-            $children['id'] = $item->id;
-        }
-        $response['children'] = $children;
-        return $response;
+        return response()->json(['category' => $categoryDTO]);
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-    }
 
     /**
      * Update the specified resource in storage.
@@ -93,11 +63,15 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'parent_id' => 'sometimes'
         ]);
+
         $category = Category::find($id);
         $category->name = $request->input('name');
+        $category->parent_id = $request->input('parent_id');
         $category->save();
-        return Category::all();
+
+        return response()->json(['category' => $category]);
     }
 
     /**
@@ -109,7 +83,12 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category->delete();
-        return Category::all();
+        if($category->delete()){
+            $status = true;
+        }else{
+            $status = false;
+        }
+
+        return response()->json(['message' => $status]);
     }
 }

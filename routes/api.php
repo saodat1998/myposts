@@ -26,13 +26,13 @@ Route::middleware('auth:api')->group(function () {
     //posts
     Route::get('posts', [PostsController::class, 'index'])->name('posts');
     Route::get('posts/{title}', [PostsController::class, 'show'])->name('show');
-    Route::post('posts', [PostsController::class, 'store'])->name('store');
+    Route::post('posts/create', [PostsController::class, 'store'])->name('store');
     Route::put('posts/{id}', [PostsController::class, 'update'])->name('update');
     Route::delete('posts/{id}', [PostsController::class, 'destroy'])->name('destroy');
 
     //categories
     Route::get('categories', [CategoriesController::class, 'index'])->name('categories');
-    Route::get('categories/{name}', [CategoriesController::class, 'show'])->name('show');
+    Route::get('categories/{id}', [CategoriesController::class, 'show'])->name('show');
     Route::post('categories', [CategoriesController::class, 'store'])->name('store');
     Route::put('categories/{id}', [CategoriesController::class, 'update'])->name('update');
     Route::delete('categories/{id}', [CategoriesController::class, 'destroy'])->name('destroy');

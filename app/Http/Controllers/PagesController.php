@@ -10,6 +10,10 @@ class PagesController extends Controller
         return view('home');
     }
 
+    public function posts(){
+        return view('pages.posts');
+    }
+
     public function login(){
         return view('auth.login');
     }

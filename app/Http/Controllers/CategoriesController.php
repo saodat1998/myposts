@@ -85,8 +85,8 @@ class CategoriesController extends Controller
             return response()->json(['message' => $e->getMessage(), 500]);
         }
 
-        $categoryDTO = new CategoryResource($category);
-        return response()->json(['category' => $categoryDTO]);
+        // $categoryDTO = new CategoryResource($category);
+        return new CategoryResource($category);
     }
     /**
      * Remove the specified resource from storage.

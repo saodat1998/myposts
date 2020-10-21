@@ -14,3 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\PagesController;
 Route::get('/', [PagesController::class, 'index']);
+Route::get('/login', [PagesController::class, 'login']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

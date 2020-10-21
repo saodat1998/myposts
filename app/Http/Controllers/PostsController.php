@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Resources\Post as PostResource;
@@ -36,17 +37,12 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $postRequest)
     {
         try{
-            $this->validate($request, [
-                'title' => 'required',
-                'body' => 'required',
-                'category_id' => 'required',
-            ]);
 
             $post = new Post;
-            $post->fill($request->all());
+            $post->fill($postRequest->validated());
             $post->status = Post::STATUS_ACTIVE;
             $post->user_id = auth()->user()->id;
 

@@ -1,0 +1,54 @@
+{
+    "name": "saodat/formbase",
+    "description": "form fields generator",
+    "keywords": [
+        "saodat",
+        "formbase"
+    ],
+    "homepage": "https://github.com/saodat/formbase",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Saodat",
+            "email": "saodat.9808@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Saodat\\FormBase\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Saodat\\FormBase\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Saodat\\FormBase\\FormBaseServiceProvider"
+            ],
+            "aliases": {
+                "FormBase": "Saodat\\FormBase\\FormBaseFacade"
+            }
+        }
+    }
+}

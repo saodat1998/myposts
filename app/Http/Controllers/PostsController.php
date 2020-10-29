@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Forms\PostForm;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -14,7 +15,7 @@ class PostsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
 
 
@@ -26,9 +27,14 @@ class PostsController extends Controller
         {
             $posts->where('title', 'LIKE', "%{$request->input('search')}%");
         }
-        $postsDTO = new PostCollection($posts->get());
 
-        return response()->json($postsDTO);
+        return response()->json(new PostCollection($posts->get()));
+    }
+
+
+    public function create(PostForm $form)
+    {
+        return response()->json($form->buildForm());
     }
 
     /**

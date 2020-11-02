@@ -1,14 +1,27 @@
 <?php
 
-// Todo readd about namespaces
 namespace Saodat\FormBase\Fields;
 
-//Todo end textfield class
 class TextField extends AbstractField
 {
     protected $type;
     protected $component = 'text';
     protected $placeholder;
+
+    protected $availableTypes = [
+        'text',
+        'email',
+        'url',
+        'tel',
+        'search',
+        'password',
+        'hidden',
+        'number',
+        'color',
+        'range',
+        'time',
+        'week'
+    ];
 
     /**
      * TextField constructor.
@@ -21,37 +34,42 @@ class TextField extends AbstractField
      */
     public function __construct(string $type, string $name, string $label = "", $placeholder = "", $value = null)
     {
-        if ($this->validateType($type)) {
-            $this->type = $type;
-        } else {
-            // Todo read about exceptions
-            throw new \Exception('Invalid text-field type');
-        }
+        $this->validateType($type);
+        $this->type = $type;
 
         $this->placeholder = $placeholder;
 
         parent::__construct($name, $label, $value);
     }
 
-    public function validateType($type) : bool
+    public function validateType($type): bool
     {
-        /// validation type logic
+        if (!$type || trim($type) == '') {
+            throw new \InvalidArgumentException('Field type must be provided.');
+        }
+
+        if (!in_array($type, $this->availableTypes)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'Unsupported field type [%s]. Available types are: %s',
+                    $type,
+                    join(', ', $this->availableTypes)
+                )
+            );
+        }
         return true;
     }
-    public function getType(){
+
+    public function getType()
+    {
         return $this->type;
     }
 
     public function getFieldSchema(): array
     {
-        $fieldSchema = [];
-
-        $fieldSchema['component'] = $this->component;
+        $fieldSchema = $this->getCommonFields();
         $fieldSchema['type'] = $this->type;
-        $fieldSchema['name'] = $this->name;
-        $fieldSchema['label'] = $this->label;
         $fieldSchema['placeholder'] = $this->placeholder;
-        $fieldSchema['value'] = $this->value;
 
         return $fieldSchema;
     }

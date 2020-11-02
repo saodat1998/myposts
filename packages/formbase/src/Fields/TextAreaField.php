@@ -3,8 +3,6 @@
 
 namespace Saodat\FormBase\Fields;
 
-// required|email|min
-
 class TextAreaField extends AbstractField
 {
 
@@ -28,13 +26,8 @@ class TextAreaField extends AbstractField
 
     public function getFieldSchema(): array
     {
-        $fieldSchema = [];
-        $fieldSchema['component'] = $this->component;
-        $fieldSchema['type'] = $this->type;
-        $fieldSchema['name'] = $this->name;
-        $fieldSchema['label'] = $this->label;
+        $fieldSchema = $this->getCommonFields();
         $fieldSchema['placeholder'] = $this->placeholder;
-        $fieldSchema['value'] = $this->value;
 
         return $fieldSchema;
     }

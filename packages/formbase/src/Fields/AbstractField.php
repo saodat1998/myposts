@@ -12,6 +12,7 @@ abstract class AbstractField
     protected $value;
     protected $validationRule;
 
+
     public function __construct(string $name, string $label, $value = null, $validationRule = "")
     {
         $this->name = $name;
@@ -70,6 +71,17 @@ abstract class AbstractField
         $this->validationRule = $validationRule;
     }
 
-    abstract public function getFieldSchema() : array;
+    public function getCommonFields(): array
+    {
+        $fieldSchema['component'] = $this->component;
+        $fieldSchema['label'] = $this->label;
+        $fieldSchema['name'] = $this->name;
+        $fieldSchema['value'] = $this->value;
+        $fieldSchema['validationRule'] = $this->validationRule;
+
+        return $fieldSchema;
+    }
+
+    abstract public function getFieldSchema(): array;
 }
 

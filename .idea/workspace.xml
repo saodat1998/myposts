@@ -20,23 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95b609f-0e0d-47a4-8629-8011e8a53724" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Forms/PostForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextAreaField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/FormHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/CheckboxField.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/FileField.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/RadioField.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/SelectField.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TreeselectField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Forms/PostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Forms/PostForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/TextAreaField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextAreaField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormHelper.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -181,7 +183,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new-console" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/formbase/src/Fields" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -193,11 +195,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src\Fields" />
+      <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src\Fields" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -219,7 +222,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1603948837870</updated>
-      <workItem from="1603948838983" duration="20463000" />
+      <workItem from="1603948838983" duration="21288000" />
+      <workItem from="1604039015242" duration="4266000" />
+      <workItem from="1604296614414" duration="1958000" />
     </task>
     <servers />
   </component>
@@ -236,47 +241,52 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="451" y="220" key="#Composer" timestamp="1603948963850">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="451" y="220" key="#Composer/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603948963850" />
-    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser" timestamp="1603975756630">
+    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser" timestamp="1604042454562">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603975756630" />
+    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604042454562" />
     <state x="469" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603972723805">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="469" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603972723805" />
-    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603967348789">
+    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604040269639">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603967348789" />
+    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604040269639" />
     <state x="418" y="253" key="ComposerInitDialogKey" timestamp="1603963695913">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="418" y="253" key="ComposerInitDialogKey/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603963695913" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1603973655930">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1604039422211">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603973655930" />
-    <state x="380" y="64" key="NewPhpClassDialog" timestamp="1603972697984">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604039422211" />
+    <state x="380" y="64" key="NewPhpClassDialog" timestamp="1604042032132">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="380" y="64" key="NewPhpClassDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603972697984" />
-    <state x="347" y="73" width="587" height="534" key="find.popup" timestamp="1603949069902">
+    <state x="380" y="64" key="NewPhpClassDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604042032132" />
+    <state x="347" y="73" width="587" height="534" key="find.popup" timestamp="1604040151920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="347" y="73" width="587" height="534" key="find.popup/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603949069902" />
+    <state x="347" y="73" width="587" height="534" key="find.popup/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604040151920" />
     <state x="484" y="102" key="refactoring.ChangeSignatureDialog" timestamp="1603973049471">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="484" y="102" key="refactoring.ChangeSignatureDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603973049471" />
-    <state x="297" y="151" key="run.anything.popup" timestamp="1603964711229">
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1604041824294">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="151" key="run.anything.popup/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603964711229" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604041824294" />
+    <state x="433" y="200" key="scopes" timestamp="1604296754069">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="433" y="200" key="scopes/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604296754069" />
   </component>
 </project>

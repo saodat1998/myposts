@@ -11,9 +11,13 @@ class PostForm extends FormBase
 
         return $this
             ->add('checkbox', 'name', $options)
+                ->setAttribute('class', '123')
             ->add('select', 'select', $options)
+                ->setAttribute('class', '123')
             ->add('text', 'name', 'label')
-            ->add('textarea', 'description', 'Desc');
+                ->setAttribute('class', '123')
+            ->add('textarea', 'description', 'Desc')
+                ->setAttribute('class', '123');
 
     }
 }

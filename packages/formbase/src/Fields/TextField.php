@@ -2,7 +2,10 @@
 
 namespace Saodat\FormBase\Fields;
 
-class TextField extends AbstractField
+
+use Saodat\FormBase\FieldsInterface;
+
+class TextField extends AbstractField implements FieldsInterface
 {
     protected $type;
     protected $component = 'text';

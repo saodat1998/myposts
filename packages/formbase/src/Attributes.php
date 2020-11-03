@@ -8,4 +8,6 @@ class Attributes
 {
     public $dense;
     public $openOnClear;
+
+  //  <element  />
 }

@@ -20,18 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95b609f-0e0d-47a4-8629-8011e8a53724" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/CheckboxField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/FileField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/RadioField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/SelectField.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TreeselectField.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/FieldsInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Forms/PostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Forms/PostForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/TextAreaField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextAreaField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormHelper.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +177,11 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/formbase/src/Fields" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -224,7 +223,9 @@
       <updated>1603948837870</updated>
       <workItem from="1603948838983" duration="21288000" />
       <workItem from="1604039015242" duration="4266000" />
-      <workItem from="1604296614414" duration="1958000" />
+      <workItem from="1604296614414" duration="2605000" />
+      <workItem from="1604382752063" duration="1397000" />
+      <workItem from="1604398337802" duration="2418000" />
     </task>
     <servers />
   </component>
@@ -248,6 +249,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="451" y="220" key="#Composer/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603948963850" />
+    <state x="233" y="0" key="#Deployment" timestamp="1604396226501">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="0" key="#Deployment/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604396226501" />
+    <state x="217" y="0" key="#SSH_Configurations" timestamp="1604383402622">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="217" y="0" key="#SSH_Configurations/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604383402622" />
     <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser" timestamp="1604042454562">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -268,10 +277,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604039422211" />
-    <state x="380" y="64" key="NewPhpClassDialog" timestamp="1604042032132">
+    <state x="380" y="64" key="NewPhpClassDialog" timestamp="1604399695925">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="380" y="64" key="NewPhpClassDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604042032132" />
+    <state x="380" y="64" key="NewPhpClassDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604399695925" />
+    <state x="497" y="240" key="WebDeployment.AddServerDialog.v.1" timestamp="1604383387316">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="497" y="240" key="WebDeployment.AddServerDialog.v.1/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604383387316" />
     <state x="347" y="73" width="587" height="534" key="find.popup" timestamp="1604040151920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

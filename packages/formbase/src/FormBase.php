@@ -37,19 +37,13 @@ class FormBase
     }
 
 
-    public function add($type, $name, $label)
+    public function addField($type, $name, $label)
     {
 
         $fieldType = $this->getFieldType($type);
         $field = new $fieldType($type, $name, $label);
         $this->fields[] = $field->getFieldSchema();
         return $this;
-    }
-
-    protected function makeField($type, $name, $label)
-    {
-        $fieldType = $this->getFieldType($type);
-        return new $fieldType($type, $name, $label);
     }
 
     public function getFieldType($type)

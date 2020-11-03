@@ -10,10 +10,13 @@ class PostForm extends FormBase
         $options = [1 => 'a', 2 => 'b', 3 => 'c'];
         $attributes = ['dense'=>true];
         return $this
-            ->addField('checkbox', 'name', $options)
-            ->addField('select', 'select', $options)
-            ->addField('text', 'name', 'label')
-            ->addField('textarea', 'description', 'Desc');
-
+            ->add('checkbox', 'name', $options)
+                ->setAttribute('class', '123')
+            ->add('select', 'select', $options)
+                ->setAttribute('class', '123')
+            ->add('text', 'name', 'label')
+                ->setAttribute('class', '123')
+            ->add('textarea', 'description', 'Desc')
+                ->setAttribute('class', '123');
     }
 }

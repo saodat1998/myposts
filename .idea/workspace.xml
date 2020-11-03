@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95b609f-0e0d-47a4-8629-8011e8a53724" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/FieldsInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/FieldAttributesInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Forms/PostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Forms/PostForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +223,7 @@
       <workItem from="1604039015242" duration="4266000" />
       <workItem from="1604296614414" duration="2605000" />
       <workItem from="1604382752063" duration="1397000" />
-      <workItem from="1604398337802" duration="2418000" />
+      <workItem from="1604398337802" duration="2891000" />
     </task>
     <servers />
   </component>

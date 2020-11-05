@@ -4,6 +4,8 @@ namespace Saodat\FormBase\Services;
 
 
 use Illuminate\Container\Container;
+use Saodat\FormBase\Services\Fields\AbstractField;
+
 /**
  * Class FormBase
  * @package Saodat\FormBase\Services
@@ -15,8 +17,14 @@ class FormBase
      */
     public $fields = [];
 
+    /**
+     * @var
+     */
     protected $fieldType;
 
+    /**
+     * @var AbstractField
+     */
     protected $service;
 
     /**

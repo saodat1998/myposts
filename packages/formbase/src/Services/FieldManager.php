@@ -20,11 +20,6 @@ class FieldManager extends FormBase implements FieldManagerContracts
 {
 
     /**
-     * @var
-     */
-    protected $field;
-
-    /**
      * @param array $attributes
      * @return mixed|FormBase
      */

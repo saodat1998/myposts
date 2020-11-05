@@ -2,9 +2,10 @@
 
 namespace Saodat\FormBase;
 
-class FormBase
+class FormBase implements FormBaseContract
 {
     public $fields = [];
+    protected $attributes = [];
 
     protected static $availableFieldTypes = [
         'text' => 'TextField',
@@ -32,17 +33,38 @@ class FormBase
         'date' => 'DateField',
     ];
 
-    public function buildForm()
+
+    /**
+     * @return $this|mixed
+     * @throws \ReflectionException
+     */
+    public function addField()
     {
+        $parameters = func_get_args();
+
+        $fieldType = $this->getFieldType($parameters[0]);
+
+        /**
+         * remove argument 'type' if it is not a TextField
+         */
+        if(!strpos($fieldType, 'TextField')){
+            array_shift($parameters);
+        }
+
+        $reflection = new \ReflectionClass($fieldType);
+        $this->field = $reflection->newInstanceArgs($parameters);
+
+        $this->fields[] = $this->field->getFieldSchema();
+        return $this;
     }
 
-
-    public function addField($type, $name, $label)
+    /**
+     * @param array $array
+     * @return $this|mixed
+     */
+    public function setAttributes($array = [])
     {
-
-        $fieldType = $this->getFieldType($type);
-        $field = new $fieldType($type, $name, $label);
-        $this->fields[] = $field->getFieldSchema();
+        $this->field['attributes'] = $array;
         return $this;
     }
 

@@ -3,9 +3,7 @@
 namespace Saodat\FormBase\Fields;
 
 
-use Saodat\FormBase\FieldsInterface;
-
-class TextField extends AbstractField implements FieldsInterface
+class TextField extends AbstractField
 {
     protected $type;
     protected $component = 'text';
@@ -31,18 +29,19 @@ class TextField extends AbstractField implements FieldsInterface
      * @param string $type
      * @param string $name
      * @param string $label
-     * @param string $placeholder
+     * @param array $attributes
      * @param null $value
-     * @throws \Exception
+     * @param string $validationRule
+     * @param string $placeholder
      */
-    public function __construct(string $type, string $name, string $label = "", $placeholder = "", $value = null)
+    public function __construct(string $type, string $name, string $label = "", $attributes = [], $value = null, $validationRule = '', $placeholder = "")
     {
         $this->validateType($type);
         $this->type = $type;
 
         $this->placeholder = $placeholder;
 
-        parent::__construct($name, $label, $value);
+        parent::__construct($name, $label, $value, $attributes, $validationRule);
     }
 
     public function validateType($type): bool

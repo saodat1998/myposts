@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c95b609f-0e0d-47a4-8629-8011e8a53724" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/formbase/src/FieldAttributesInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/formbase/src/FormBaseContract.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Forms/PostForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Forms/PostForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Attributes.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/FieldAttributes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/AbstractField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/SelectField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/SelectField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Fields/TextField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FieldsInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/FormBase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/formbase/src/FormBaseServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/packages/formbase/src/Providers/FormBaseServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +175,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -180,7 +188,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/formbase/src/Fields" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-form-builder" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -192,12 +200,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src\Providers" />
+      <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src\Fields" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src\Fields" />
       <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\OpenServer\domains\laravel-master\packages\formbase\src\Fields" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -223,7 +232,8 @@
       <workItem from="1604039015242" duration="4266000" />
       <workItem from="1604296614414" duration="2605000" />
       <workItem from="1604382752063" duration="1397000" />
-      <workItem from="1604398337802" duration="2891000" />
+      <workItem from="1604398337802" duration="6742000" />
+      <workItem from="1604499229101" duration="9799000" />
     </task>
     <servers />
   </component>
@@ -255,30 +265,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="217" y="0" key="#SSH_Configurations/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604383402622" />
-    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser" timestamp="1604042454562">
+    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser" timestamp="1604512381359">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604042454562" />
+    <state x="446" y="45" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604512381359" />
     <state x="469" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603972723805">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="469" y="116" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603972723805" />
-    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604040269639">
+    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604513850385">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604040269639" />
+    <state x="371" y="96" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604513850385" />
     <state x="418" y="253" key="ComposerInitDialogKey" timestamp="1603963695913">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="418" y="253" key="ComposerInitDialogKey/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1603963695913" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1604039422211">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1604424903001">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604039422211" />
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604424903001" />
     <state x="380" y="64" key="NewPhpClassDialog" timestamp="1604399695925">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="380" y="64" key="NewPhpClassDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604399695925" />
+    <state x="477" y="264" key="NewPhpFileDialog" timestamp="1604513361890">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="477" y="264" key="NewPhpFileDialog/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604513361890" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1604514487001">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1280.680/-1920.0.1920.1040@0.0.1280.680" timestamp="1604514487001" />
     <state x="497" y="240" key="WebDeployment.AddServerDialog.v.1" timestamp="1604383387316">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

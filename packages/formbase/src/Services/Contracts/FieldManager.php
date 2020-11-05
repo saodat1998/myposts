@@ -16,7 +16,7 @@ interface FieldManager
     public function setAttributes(array $array);
 
     /**
-     * @return mixed
+     * @return $this
      */
     public function get();
 

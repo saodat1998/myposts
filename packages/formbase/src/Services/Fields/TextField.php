@@ -1,6 +1,6 @@
 <?php
 
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 
 class TextField extends AbstractField
@@ -34,14 +34,14 @@ class TextField extends AbstractField
      * @param string $validationRule
      * @param string $placeholder
      */
-    public function __construct(string $type, string $name, string $label = "", $attributes = [], $value = null, $validationRule = '', $placeholder = "")
+    public function __construct(string $type, string $name, string $label = "", $value = null, $validationRule = '', $placeholder = "")
     {
         $this->validateType($type);
         $this->type = $type;
 
         $this->placeholder = $placeholder;
 
-        parent::__construct($name, $label, $value, $attributes, $validationRule);
+        parent::__construct($name, $label, $value, $validationRule);
     }
 
     public function validateType($type): bool

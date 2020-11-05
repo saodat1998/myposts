@@ -1,24 +1,46 @@
 <?php
 
 
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 
 abstract class AbstractField
 {
+    /**
+     * @var
+     */
     protected $component;
+
+    /**
+     * @var string
+     */
     protected $name;
+
+    /**
+     * @var string
+     */
     protected $label;
-    protected $attributes;
+
+    /**
+     * @var array
+     */
+    protected $attributes = [];
+
+    /**
+     * @var null
+     */
     protected $value;
+
+    /**
+     * @var string
+     */
     protected $validationRule;
 
 
-    public function __construct(string $name, string $label, $value = null, $attributes = [], $validationRule = "")
+    public function __construct(string $name, string $label, $value = null, $validationRule = "")
     {
         $this->name = $name;
         $this->label = $label;
-        $this->attributes = $attributes;
         $this->value = $value;
         $this->validationRule = $validationRule;
     }
@@ -47,6 +69,11 @@ abstract class AbstractField
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    public function setAttributes($attributes)
+    {
+        $this->attributes = $attributes;
     }
 
     /**

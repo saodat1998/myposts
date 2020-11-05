@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 class TextAreaField extends AbstractField
 {

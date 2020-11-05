@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 
-class CheckboxField extends AbstractField
+class RadioField extends AbstractField
 {
-    protected $component = 'checkbox';
+    protected $component = 'radio';
     protected $options;
 
     /**

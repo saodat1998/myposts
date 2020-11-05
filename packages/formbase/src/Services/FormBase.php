@@ -1,10 +1,11 @@
 <?php
 
-namespace Saodat\FormBase;
+namespace Saodat\FormBase\Services;
 
-class FormBase implements FormBaseContract
+class FormBase
 {
     public $fields = [];
+
     protected $attributes = [];
 
     protected static $availableFieldTypes = [
@@ -52,20 +53,36 @@ class FormBase implements FormBaseContract
         }
 
         $reflection = new \ReflectionClass($fieldType);
-        $this->field = $reflection->newInstanceArgs($parameters);
 
+        $this->field = $reflection->newInstanceArgs($parameters);
+        return $this;
+    }
+
+    /**
+     * @param array $attributes
+     * @return $this|mixed
+     */
+    public function setAttributes($attributes = [])
+    {
+        $this->field->setAttributes($attributes);
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function get()
+    {
         $this->fields[] = $this->field->getFieldSchema();
         return $this;
     }
 
     /**
-     * @param array $array
-     * @return $this|mixed
+     * @return mixed
      */
-    public function setAttributes($array = [])
+    public function getOne()
     {
-        $this->field['attributes'] = $array;
-        return $this;
+        return $this->field->getFieldSchema();
     }
 
     public function getFieldType($type)

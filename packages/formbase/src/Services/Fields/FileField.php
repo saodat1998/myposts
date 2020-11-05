@@ -1,12 +1,12 @@
 <?php
 
-
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 
 class FileField extends AbstractField
 {
     protected $component = 'file';
+
     protected $placeholder;
 
     /**
@@ -20,6 +20,7 @@ class FileField extends AbstractField
     public function __construct(string $name, string $label, $placeholder = "", $validationRule = '', $value = null)
     {
         $this->placeholder = $placeholder;
+
         parent::__construct($name, $label, $value, $validationRule);
     }
 
@@ -27,6 +28,7 @@ class FileField extends AbstractField
     public function getFieldSchema(): array
     {
         $fieldSchema = $this->getCommonFields();
+
         $fieldSchema['placeholder'] = $this->placeholder;
 
         return $fieldSchema;

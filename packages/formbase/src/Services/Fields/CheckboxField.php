@@ -1,12 +1,10 @@
 <?php
+namespace Saodat\FormBase\Services\Fields;
 
 
-namespace Saodat\FormBase\Fields;
-
-
-class TreeselectField extends AbstractField
+class CheckboxField extends AbstractField
 {
-    protected $component = 'treeselect';
+    protected $component = 'checkbox';
     protected $options;
 
     /**
@@ -16,7 +14,7 @@ class TreeselectField extends AbstractField
      * @param null $value
      * @param array $options
      */
-    public function __construct(string $name, string $label, array $options, $value = null)
+    public function __construct(string $name, string $label,  $options = [], $value = null)
     {
         $this->options = $options;
         parent::__construct($name, $label, $value);

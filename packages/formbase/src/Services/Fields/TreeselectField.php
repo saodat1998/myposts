@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 
-class RadioField extends AbstractField
+class TreeselectField extends AbstractField
 {
-    protected $component = 'radio';
+    protected $component = 'treeselect';
     protected $options;
 
     /**
@@ -16,7 +16,7 @@ class RadioField extends AbstractField
      * @param null $value
      * @param array $options
      */
-    public function __construct(string $name, string $label,  $options = [], $value = null)
+    public function __construct(string $name, string $label, array $options, $value = null)
     {
         $this->options = $options;
         parent::__construct($name, $label, $value);

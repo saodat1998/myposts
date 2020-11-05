@@ -1,23 +1,23 @@
 <?php
 namespace App\Forms;
 
-use Saodat\FormBase\FormBaseContract as FormBase;
+use Saodat\FormBase\Services\Contracts\FieldManager;
 
 class PostForm
 {
 
     /**
-     * @var FormBase
+     * @var FieldManager
      */
-    protected $formBase;
+    protected $fieldManager;
 
     /**
      * PostForm constructor.
-     * @param FormBase $formBase
+     * @param FieldManager $fieldManager
      */
-    public function __construct(FormBase $formBase)
+    public function __construct(FieldManager $fieldManager)
     {
-        $this->formBase = $formBase;
+        $this->fieldManager = $fieldManager;
     }
 
     /**
@@ -30,7 +30,9 @@ class PostForm
          */
         $options = [1 => 'a', 2 => 'b', 3 => 'c'];
         $attributes = ['dense'=>true, "cols"=>'6', 'class'=> 'my-class'];
-        return $this->formBase->addField('select', 'name', 'select-label', $options)->setAttributes($attributes)
-            ->addField('text', 'name', 'label')->setAttributes($attributes);
+        return $this->fieldManager
+            ->addField('select', 'name', 'select-label', $options)
+            ->setAttributes($attributes)
+            ->getOne();
     }
 }

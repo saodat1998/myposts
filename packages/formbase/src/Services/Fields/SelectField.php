@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Saodat\FormBase\Fields;
+namespace Saodat\FormBase\Services\Fields;
 
 
 class SelectField extends AbstractField
@@ -14,14 +14,13 @@ class SelectField extends AbstractField
      * @param string $name
      * @param string $label
      * @param array $options
-     * @param array $attributes
      * @param null $value
      * @param string $validationRule
      */
-    public function __construct(string $name, string $label, array $options, $attributes = [], $value = null, $validationRule = '')
+    public function __construct(string $name, string $label, array $options, $value = null, $validationRule = '')
     {
         $this->options = $options;
-        parent::__construct($name, $label, $value, $attributes, $validationRule);
+        parent::__construct($name, $label, $value, $validationRule);
     }
 
     /**

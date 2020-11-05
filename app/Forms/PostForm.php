@@ -36,6 +36,7 @@ class PostForm
             ->get()
             ->addField('text', 'name', 'label')
             ->setAttributes($attributes)
-            ->get();
+            ->get()
+            ->all();
     }
 }

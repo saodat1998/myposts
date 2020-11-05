@@ -24,4 +24,9 @@ interface FieldManager
      * @return mixed
      */
     public function getOne();
+
+    /**
+     * @return mixed
+     */
+    public function all();
 }

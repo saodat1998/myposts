@@ -113,6 +113,14 @@ class FormBase
     }
 
     /**
+     * @return array
+     */
+    public function all()
+    {
+        return ['fields' => $this->fields];
+    }
+
+    /**
      * @return mixed
      */
     public function getOne()

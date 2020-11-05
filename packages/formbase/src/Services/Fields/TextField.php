@@ -42,23 +42,15 @@ class TextField extends AbstractField
     ];
 
     /**
-     * TextField constructor.
-     * @param string $type
-     * @param string $name
-     * @param string $label
-     * @param null $value
-     * @param string $validationRule
-     * @param string $placeholder
+     * @var array
      */
-    public function __construct(string $type, string $name, string $label = "", $value = null, $validationRule = '', $placeholder = "")
-    {
-        $this->validateType($type);
-        $this->type = $type;
-
-        $this->placeholder = $placeholder;
-
-        parent::__construct($name, $label, $value, $validationRule);
-    }
+    protected $properties = [
+        'name',
+        'label',
+        'options',
+        'validationRule',
+        'placeholder',
+    ];
 
     /**
      * @param $type

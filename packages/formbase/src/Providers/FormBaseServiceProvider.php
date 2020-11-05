@@ -12,12 +12,6 @@ use Saodat\FormBase\Services\FieldManager;
  */
 class FormBaseServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
-    {
-    }
 
     /**
      * Register the application services.

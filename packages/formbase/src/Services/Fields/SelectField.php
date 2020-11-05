@@ -4,6 +4,8 @@
 namespace Saodat\FormBase\Services\Fields;
 
 
+use Illuminate\Support\Arr;
+
 class SelectField extends AbstractField
 {
     /**
@@ -17,18 +19,15 @@ class SelectField extends AbstractField
     protected $options;
 
     /**
-     * CheckboxField constructor.
-     * @param string $name
-     * @param string $label
-     * @param array $options
-     * @param null $value
-     * @param string $validationRule
+     * @var array
      */
-    public function __construct(string $name, string $label, array $options, $value = null, $validationRule = '')
-    {
-        $this->options = $options;
-        parent::__construct($name, $label, $value, $validationRule);
-    }
+    protected $properties = [
+        'name',
+        'label',
+        'options',
+        'value',
+        'validationRule',
+    ];
 
     /**
      * @return array

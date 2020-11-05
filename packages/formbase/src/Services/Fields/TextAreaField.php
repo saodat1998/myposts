@@ -20,19 +20,14 @@ class TextAreaField extends AbstractField
     protected $placeholder;
 
     /**
-     * TextAreaField constructor.
-     * @param string $name
-     * @param string $label
-     * @param null $value
-     * @param string $validationRule
-     * @param string $placeholder
+     * @var array
      */
-    public function __construct(string $name, string $label = '', $value = null,  $validationRule = '', string $placeholder = '')
-    {
-        $this->placeholder = $placeholder;
-
-        parent::__construct( $name,  $label, $value, $validationRule);
-    }
+    protected $properties = [
+        'name',
+        'label',
+        'options',
+        'value',
+    ];
 
     /**
      * @return string

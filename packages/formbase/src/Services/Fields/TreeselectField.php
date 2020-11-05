@@ -17,17 +17,15 @@ class TreeselectField extends AbstractField
     protected $options;
 
     /**
-     * CheckboxField constructor.
-     * @param string $name
-     * @param string $label
-     * @param null $value
-     * @param array $options
+     * @var array
      */
-    public function __construct(string $name, string $label, array $options, $value = null)
-    {
-        $this->options = $options;
-        parent::__construct($name, $label, $value);
-    }
+    protected $properties = [
+        'name',
+        'label',
+        'options',
+        'validationRule',
+        'placeholder',
+    ];
 
     /**
      * @return array

@@ -2,6 +2,8 @@
 
 namespace Saodat\FormBase\Services\Fields;
 
+use Illuminate\Support\Arr;
+
 /**
  * Class AbstractField
  * @package Saodat\FormBase\Services\Fields
@@ -38,15 +40,33 @@ abstract class AbstractField
      */
     protected $validationRule;
 
+    /**
+     * @var array
+     */
+    protected $properties = [
+        'name',
+        'label',
+        'options',
+        'value',
+        'validationRule',
+    ];
 
-    public function __construct(string $name, string $label, $value = null, $validationRule = "")
+    /**
+     * @param array $params
+     * @return $this
+     */
+    public function addParams($params = [])
     {
-        $this->name = $name;
-        $this->label = $label;
-        $this->value = $value;
-        $this->validationRule = $validationRule;
+        foreach ($this->properties as $key => $property) {
+            $this->{$property} = Arr::get($params, $key);
+        }
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return $this->name;

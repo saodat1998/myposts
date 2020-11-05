@@ -19,19 +19,15 @@ class FileField extends AbstractField
     protected $placeholder;
 
     /**
-     * CheckboxField constructor.
-     * @param string $name
-     * @param string $label
-     * @param string $placeholder
-     * @param null $value
-     * @param string $validationRule
+     * @var array
      */
-    public function __construct(string $name, string $label, $placeholder = "", $validationRule = '', $value = null)
-    {
-        $this->placeholder = $placeholder;
-
-        parent::__construct($name, $label, $value, $validationRule);
-    }
+    protected $properties = [
+        'name',
+        'label',
+        'options',
+        'value',
+        'validationRule',
+    ];
 
     /**
      * @return array

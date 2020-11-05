@@ -2,6 +2,8 @@
 
 namespace Saodat\FormBase\Services;
 
+
+use Illuminate\Container\Container;
 /**
  * Class FormBase
  * @package Saodat\FormBase\Services
@@ -12,6 +14,10 @@ class FormBase
      * @var array
      */
     public $fields = [];
+
+    protected $fieldType;
+
+    protected $service;
 
     /**
      * @var array
@@ -49,25 +55,41 @@ class FormBase
 
 
     /**
-     * @return $this|mixed
-     * @throws \ReflectionException
+     * FormBase constructor.
+     * @param Container $container
+     */
+    public function __construct(Container $container)
+    {
+        $this->container      = $container;
+    }
+
+    /**
+     * @return mixed
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function addField()
     {
         $parameters = func_get_args();
 
-        $fieldType = $this->getFieldType($parameters[0]);
+        $this->fieldType = $this->getFieldType($parameters[0]);
 
         /**
          * remove argument 'type' if it is not a TextField
          */
-        if(!strpos($fieldType, 'TextField')){
+        if (!strpos($this->fieldType, 'TextField')) {
             array_shift($parameters);
         }
 
-        $reflection = new \ReflectionClass($fieldType);
+        $propName = lcfirst($this->fieldType);
+        if (empty($this->$propName)) {
+            $this->service = $this->container->make($this->fieldType);
+            $this->$propName = $this->service;
+        } else {
+            $this->service = $this->$propName;
+        }
 
-        $this->field = $reflection->newInstanceArgs($parameters);
+        $this->service->addParams($parameters);
+
         return $this;
     }
 
@@ -77,7 +99,7 @@ class FormBase
      */
     public function setAttributes($attributes = [])
     {
-        $this->field->setAttributes($attributes);
+        $this->service->setAttributes($attributes);
         return $this;
     }
 
@@ -86,7 +108,7 @@ class FormBase
      */
     public function get()
     {
-        $this->fields[] = $this->field->getFieldSchema();
+        $this->fields[] = $this->service->getFieldSchema();
         return $this;
     }
 
@@ -95,7 +117,7 @@ class FormBase
      */
     public function getOne()
     {
-        return $this->field->getFieldSchema();
+        return $this->service->getFieldSchema();
     }
 
     /**

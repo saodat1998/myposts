@@ -3,10 +3,20 @@
 
 namespace Saodat\FormBase\Services\Fields;
 
-
+/**
+ * Class RadioField
+ * @package Saodat\FormBase\Services\Fields
+ */
 class RadioField extends AbstractField
 {
+    /**
+     * @var string
+     */
     protected $component = 'radio';
+
+    /**
+     * @var array
+     */
     protected $options;
 
     /**
@@ -30,7 +40,9 @@ class RadioField extends AbstractField
         return $this->options;
     }
 
-
+    /**
+     * @return array
+     */
     public function getFieldSchema(): array
     {
         $fieldSchema = $this->getCommonFields();

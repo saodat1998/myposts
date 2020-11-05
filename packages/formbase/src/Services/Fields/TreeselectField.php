@@ -6,7 +6,14 @@ namespace Saodat\FormBase\Services\Fields;
 
 class TreeselectField extends AbstractField
 {
+    /**
+     * @var string
+     */
     protected $component = 'treeselect';
+
+    /**
+     * @var array
+     */
     protected $options;
 
     /**
@@ -30,7 +37,9 @@ class TreeselectField extends AbstractField
         return $this->options;
     }
 
-
+    /**
+     * @return array
+     */
     public function getFieldSchema(): array
     {
         $fieldSchema = $this->getCommonFields();

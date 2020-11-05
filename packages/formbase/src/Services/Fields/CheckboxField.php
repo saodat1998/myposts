@@ -1,7 +1,10 @@
 <?php
 namespace Saodat\FormBase\Services\Fields;
 
-
+/**
+ * Class CheckboxField
+ * @package Saodat\FormBase\Services\Fields
+ */
 class CheckboxField extends AbstractField
 {
     protected $component = 'checkbox';
@@ -28,7 +31,9 @@ class CheckboxField extends AbstractField
         return $this->options;
     }
 
-
+    /**
+     * @return array
+     */
     public function getFieldSchema(): array
     {
         $fieldSchema = $this->getCommonFields();

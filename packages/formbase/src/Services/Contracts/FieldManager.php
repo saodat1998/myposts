@@ -3,7 +3,10 @@
 
 namespace Saodat\FormBase\Services\Contracts;
 
-
+/**
+ * Interface FieldManager
+ * @package Saodat\FormBase\Services\Contracts
+ */
 interface FieldManager
 {
     /**

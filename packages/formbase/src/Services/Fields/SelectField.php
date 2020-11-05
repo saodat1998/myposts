@@ -6,7 +6,14 @@ namespace Saodat\FormBase\Services\Fields;
 
 class SelectField extends AbstractField
 {
+    /**
+     * @var string
+     */
     protected $component = 'select';
+
+    /**
+     * @var array
+     */
     protected $options;
 
     /**

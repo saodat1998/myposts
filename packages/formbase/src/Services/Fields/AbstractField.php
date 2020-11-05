@@ -1,9 +1,11 @@
 <?php
 
-
 namespace Saodat\FormBase\Services\Fields;
 
-
+/**
+ * Class AbstractField
+ * @package Saodat\FormBase\Services\Fields
+ */
 abstract class AbstractField
 {
     /**

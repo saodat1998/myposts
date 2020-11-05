@@ -33,6 +33,9 @@ class PostForm
         return $this->fieldManager
             ->addField('select', 'name', 'select-label', $options)
             ->setAttributes($attributes)
-            ->getOne();
+            ->get()
+            ->addField('text', 'name', 'label')
+            ->setAttributes($attributes)
+            ->get();
     }
 }

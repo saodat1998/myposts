@@ -2,12 +2,25 @@
 
 namespace Saodat\FormBase\Services;
 
+/**
+ * Class FormBase
+ * @package Saodat\FormBase\Services
+ */
 class FormBase
 {
+    /**
+     * @var array
+     */
     public $fields = [];
 
+    /**
+     * @var array
+     */
     protected $attributes = [];
 
+    /**
+     * @var array
+     */
     protected static $availableFieldTypes = [
         'text' => 'TextField',
         'email' => 'TextField',
@@ -85,6 +98,10 @@ class FormBase
         return $this->field->getFieldSchema();
     }
 
+    /**
+     * @param $type
+     * @return string
+     */
     public function getFieldType($type)
     {
         $types = array_keys(static::$availableFieldTypes);

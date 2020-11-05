@@ -2,13 +2,30 @@
 
 namespace Saodat\FormBase\Services\Fields;
 
-
+/**
+ * Class TextField
+ * @package Saodat\FormBase\Services\Fields
+ */
 class TextField extends AbstractField
 {
+    /**
+     * @var string
+     */
     protected $type;
+
+    /**
+     * @var string
+     */
     protected $component = 'text';
+
+    /**
+     * @var string
+     */
     protected $placeholder;
 
+    /**
+     * @var array
+     */
     protected $availableTypes = [
         'text',
         'email',
@@ -29,7 +46,6 @@ class TextField extends AbstractField
      * @param string $type
      * @param string $name
      * @param string $label
-     * @param array $attributes
      * @param null $value
      * @param string $validationRule
      * @param string $placeholder
@@ -44,6 +60,10 @@ class TextField extends AbstractField
         parent::__construct($name, $label, $value, $validationRule);
     }
 
+    /**
+     * @param $type
+     * @return bool
+     */
     public function validateType($type): bool
     {
         if (!$type || trim($type) == '') {
@@ -62,11 +82,17 @@ class TextField extends AbstractField
         return true;
     }
 
+    /**
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * @return array
+     */
     public function getFieldSchema(): array
     {
         $fieldSchema = $this->getCommonFields();

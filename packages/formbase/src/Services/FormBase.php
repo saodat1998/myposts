@@ -10,7 +10,7 @@ use Saodat\FormBase\Services\Fields\AbstractField;
  * Class FormBase
  * @package Saodat\FormBase\Services
  */
-class FormBase
+abstract class FormBase
 {
     /**
      * @var array
@@ -112,6 +112,16 @@ class FormBase
     public function all()
     {
         return ['fields' => $this->fields];
+    }
+
+
+    /**
+     * @return $this
+     */
+    public function get()
+    {
+        $this->fields[] = $this->service->getFieldSchema();
+        return $this;
     }
 
     /**

@@ -41,6 +41,8 @@ abstract class AbstractField
     protected $validationRule;
 
     /**
+     * Default properties
+     *
      * @var array
      */
     protected $properties = [

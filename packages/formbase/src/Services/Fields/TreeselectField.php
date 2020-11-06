@@ -4,7 +4,9 @@
 namespace Saodat\FormBase\Services\Fields;
 
 
-class TreeselectField extends AbstractField
+use Saodat\FormBase\Services\Fields\Contracts\GetOptions;
+
+class TreeselectField extends AbstractField implements GetOptions
 {
     /**
      * @var string

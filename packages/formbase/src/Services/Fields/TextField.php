@@ -2,11 +2,13 @@
 
 namespace Saodat\FormBase\Services\Fields;
 
+use Saodat\FormBase\Services\Fields\Contracts\GetType;
+
 /**
  * Class TextField
  * @package Saodat\FormBase\Services\Fields
  */
-class TextField extends AbstractField
+class TextField extends AbstractField implements GetType
 {
     /**
      * @var string
@@ -77,7 +79,7 @@ class TextField extends AbstractField
     /**
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }

@@ -1,12 +1,14 @@
 <?php
 
-
 namespace Saodat\FormBase\Services\Fields;
 
+use Saodat\FormBase\Services\Fields\Contracts\GetOptions;
 
-use Illuminate\Support\Arr;
-
-class SelectField extends AbstractField
+/**
+ * Class SelectField
+ * @package Saodat\FormBase\Services\Fields
+ */
+class SelectField extends AbstractField implements GetOptions
 {
     /**
      * @var string
@@ -37,7 +39,9 @@ class SelectField extends AbstractField
         return $this->options;
     }
 
-
+    /**
+     * @return array
+     */
     public function getFieldSchema(): array
     {
         $fieldSchema = $this->getCommonFields();

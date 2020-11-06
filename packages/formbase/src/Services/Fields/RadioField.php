@@ -3,11 +3,13 @@
 
 namespace Saodat\FormBase\Services\Fields;
 
+use Saodat\FormBase\Services\Fields\Contracts\GetOptions;
+
 /**
  * Class RadioField
  * @package Saodat\FormBase\Services\Fields
  */
-class RadioField extends AbstractField
+class RadioField extends AbstractField implements GetOptions
 {
     /**
      * @var string

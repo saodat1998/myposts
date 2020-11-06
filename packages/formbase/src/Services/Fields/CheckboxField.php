@@ -1,11 +1,13 @@
 <?php
 namespace Saodat\FormBase\Services\Fields;
 
+use Saodat\FormBase\Services\Fields\Contracts\GetOptions;
+
 /**
  * Class CheckboxField
  * @package Saodat\FormBase\Services\Fields
  */
-class CheckboxField extends AbstractField
+class CheckboxField extends AbstractField implements GetOptions
 {
     /**
      * @var string

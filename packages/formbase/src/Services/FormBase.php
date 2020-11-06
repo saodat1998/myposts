@@ -30,11 +30,6 @@ class FormBase
     /**
      * @var array
      */
-    protected $attributes = [];
-
-    /**
-     * @var array
-     */
     protected static $availableFieldTypes = [
         'text' => 'TextField',
         'email' => 'TextField',
@@ -108,15 +103,6 @@ class FormBase
     public function setAttributes($attributes = [])
     {
         $this->service->setAttributes($attributes);
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function get()
-    {
-        $this->fields[] = $this->service->getFieldSchema();
         return $this;
     }
 
